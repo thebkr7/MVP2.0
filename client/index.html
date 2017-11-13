@@ -12,11 +12,14 @@
       <input ng-model='textToPost.text' placeholder="something">
       <button type="submit" ng-click='addNote()'>U Sure?</button>
       <button type="submit" ng-click='retrieve()'>View Old Thoughts</button>
+      <button type="submit" ng-click='crypto()'>Get Me Some Blockchain</button>
       <ul>
           <li ng-repeat="x in products" class="memory">{{x.text}}</li>
       </ul>
+      <ul>
+          <li ng-repeat="y in cryptoData" class="memory">{{y.id + ': ' + y.price_usd}}</li>
+      </ul>
 
-      <!-- <button type="submit" href ng-click="crytpo.html">Get Me Some Blockchain</button> -->
 
     </div>
   </body>

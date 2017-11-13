@@ -48,16 +48,19 @@ notepad.controller('mainController', ['$scope', '$http', function($scope, $http)
 
 //TODO after page is launched
   // CRYPTODATA.  Planned to have it in server but http undefined. look into later
-  // $scope.crypto = function() {
-  //   $http.get('https://api.coinmarketcap.com/v1/ticker/').then(function(response, error){
-  //     if (error) {
-  //       console.log('error GET line 52 client', error)
-  //     } else if (response) {
-  //       console.log('SUCCESS GET line 54 client', response);
-  //     }
-  //     response.send('/crypto.html')
-  //   });
-  // }
+  $scope.cryptoData = [];
+  $scope.crypto = function() {
+    $http.get('https://api.coinmarketcap.com/v1/ticker/').then(function(response, error){
+      if (error) {
+        console.log('error GET line 52 client', error)
+      } else if (response) {
+        $scope.cryptoData = response.data;
+        // $scope.cryptoData.reverse();
+        console.log('SUCCESS GET line 54 client', response.data[0].id);
+      }
+      // response.send('/crypto.html')
+    });
+  }
 
 
 
